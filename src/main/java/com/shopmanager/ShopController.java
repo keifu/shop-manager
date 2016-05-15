@@ -58,9 +58,13 @@ public class ShopController {
 		if(shopList.isEmpty()){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}else{
-			Shop shop = ShopUtils.getNearestShop(latitude, longitude, shopList);
+			Shop shop = getNearestShop(latitude, longitude, shopList);
 			return new ResponseEntity<>(shop, HttpStatus.OK);
 		}
+	}
+	
+	public Shop getNearestShop(Double latitude,Double longitude, List<Shop> shopList){
+		return ShopUtils.getNearestShop(latitude, longitude, shopList);
 	}
 	
 	@RequestMapping(value = "/shopList", method = RequestMethod.GET)

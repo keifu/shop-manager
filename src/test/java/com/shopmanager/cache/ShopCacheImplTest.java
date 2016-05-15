@@ -1,4 +1,4 @@
-package com.shopmanger.cache;
+package com.shopmanager.cache;
 
 import static org.junit.Assert.assertEquals;
 

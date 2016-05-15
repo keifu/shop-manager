@@ -2,10 +2,15 @@ package com.shopmanager;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyDouble;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,8 +33,17 @@ public class ShopControllerTest {
 		when(geoLocation.getLocation(any(Shop.class))).thenReturn(new Location(1.2, 1.3));
 		
 		shopCache = mock(ShopCache.class);
+		List<Shop> shopList = new ArrayList<>();
+		Shop shop = new Shop();
+		shop.setShopName("shop Name");
+		shop.setShopNumber("shop Number");
+		shop.setPostCode("E6");
+		shop.setLatitude(1.2);
+		shop.setLongitude(1.3);
+		shopList.add(shop);
+		when(shopCache.getShopList()).thenReturn(shopList);
 		
-		shopController = new ShopController();
+		shopController = spy(ShopController.class);
 		
 		shopController.setGeoLocation(geoLocation);
 		shopController.setShopCache(shopCache);
@@ -52,7 +66,9 @@ public class ShopControllerTest {
 	public void testGetNearest() throws Exception{
 		
 		shopController.getNearestShop(1.2, 1.3);
+		
 		verify(shopCache, times(1)).getShopList();
+		verify(shopController, times(1)).getNearestShop(anyDouble(), anyDouble(), any());
 		
 	}
 	

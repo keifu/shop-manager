@@ -1,4 +1,4 @@
-package com.shopmanger.geolocation;
+package com.shopmanager.geolocation;
 
 import static org.junit.Assert.assertEquals;
 
