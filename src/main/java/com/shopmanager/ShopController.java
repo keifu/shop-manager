@@ -52,8 +52,8 @@ public class ShopController {
 		
 	@RequestMapping(value = "/shop", method = RequestMethod.GET)
 	public ResponseEntity<Shop> getNearestShop(@RequestParam(value = "latitude", defaultValue = "0")Double latitude, 
-										 @RequestParam(value = "longitude", defaultValue = "0")Double longitude) {
-		
+									 @RequestParam(value = "longitude", defaultValue = "0")Double longitude) {
+			
 		List<Shop> shopList = shopCache.getShopList();
 		if(shopList.isEmpty()){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -67,7 +67,7 @@ public class ShopController {
 		return ShopUtils.getNearestShop(latitude, longitude, shopList);
 	}
 	
-	@RequestMapping(value = "/shopList", method = RequestMethod.GET)
+	@RequestMapping(value = "/shoplist", method = RequestMethod.GET)
 	public ResponseEntity<List<Shop>>  getShopList() {
 		List<Shop> shopList = shopCache.getShopList();
 		return new ResponseEntity<>(shopList, HttpStatus.OK);
