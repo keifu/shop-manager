@@ -44,14 +44,13 @@ public class ShopController {
 			}
 			
 			logger.info("Added shop: " + shop);
+			return new ResponseEntity<>(HttpStatus.CREATED);
 			
 		} catch (Exception e) {
 			logger.error("Unable to add shop", e);
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			
 		}
-
-		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 		
 	@RequestMapping(value = "/shop", method = RequestMethod.GET)
