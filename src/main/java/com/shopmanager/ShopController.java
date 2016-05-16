@@ -37,7 +37,11 @@ public class ShopController {
 			shop.setLatitude(location.getLatitude());
 			shop.setLongitude(location.getLongitude());
 			
-			shopCache.add(shop);
+			boolean added = shopCache.add(shop);
+			if(!added){
+				logger.info("Shop has already been added: " + shop);
+				return new ResponseEntity<>(HttpStatus.CONFLICT);
+			}
 			
 			logger.info("Added shop: " + shop);
 			

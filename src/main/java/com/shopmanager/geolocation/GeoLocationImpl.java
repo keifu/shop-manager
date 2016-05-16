@@ -29,7 +29,12 @@ public class GeoLocationImpl implements GeoLocation {
 		
 		GeocodingResult[] results = GeocodingApi.geocode(context,
 					   shop.getShopNumber() + ", " + shop.getPostCode()).await();
-		 
+		
+		
+		if(results == null || results.length == 0){
+			throw new Exception("Cannot find location for " + shop);
+		}
+		
 		LatLng latlng = results[0].geometry.location;
 		
 		Location location = new Location(latlng.lat, latlng.lng);

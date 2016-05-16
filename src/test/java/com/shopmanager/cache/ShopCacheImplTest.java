@@ -68,4 +68,14 @@ public class ShopCacheImplTest {
 		assertEquals(shop3, shopList.get(2));
 	}
 	
+	@Test
+	public void tesAddShop_Duplicate(){
+	
+		shopCache.add(shop);
+		shopCache.add(shop);
+		
+		List<Shop> shopList = shopCache.getShopList();
+		assertEquals(1, shopList.size());
+
+	}
 }

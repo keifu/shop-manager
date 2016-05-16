@@ -2,8 +2,8 @@ package com.shopmanager.geolocation;
 
 public class Location {
 	
-	Double latitude;
-	Double longitude;
+	private Double latitude;
+	private Double longitude;
 	
 	public Location(Double latitude, Double longitude){
 		this.latitude = latitude;

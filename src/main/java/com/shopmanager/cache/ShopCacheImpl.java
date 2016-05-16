@@ -24,8 +24,14 @@ public class ShopCacheImpl implements ShopCache{
 	}
 	
 	@Override
-	public void add(Shop shop) {
-		shopList.add(shop);
+	public boolean add(Shop shop) {
+		
+		synchronized (shopList) {
+			if(!shopList.contains(shop)){
+				return shopList.add(shop);
+			}
+			return false;
+		}	
 	}
 
 	@Override

@@ -14,11 +14,12 @@ import com.shopmanager.Shop;
 public interface ShopCache {
 	
 	/**
-	 * Add shop to cache
+	 * Add Shop to cache
 	 * 
 	 * @param shop
+	 * @return true shop is added to cache, false if already present in cache
 	 */
-	public void add(Shop shop);
+	public boolean add(Shop shop);
 	
 	/**
 	 * Returns all shops in cache
