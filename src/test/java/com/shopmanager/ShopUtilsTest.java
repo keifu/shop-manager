@@ -26,6 +26,8 @@ public class ShopUtilsTest {
 	private Shop shop;
 	private Shop shop2;
 	private Shop shop3;
+	
+	private DecimalFormat df; 
 
 	@Before
 	public void setup() {
@@ -50,6 +52,8 @@ public class ShopUtilsTest {
 		shop3.setPostCode("E3");
 		shop3.setLatitude(100.0);
 		shop3.setLongitude(100.0);
+		
+		df = new DecimalFormat("#.00"); 
 	}
 
 	@Test
@@ -94,7 +98,6 @@ public class ShopUtilsTest {
 			double lng2, double expectedDistance) throws ParseException {
 		
 		Double distance = ShopUtils.calculateDistance(lat1, lng1, lat2, lng2);
-		DecimalFormat df = new DecimalFormat("#.00"); 
 		distance = df.parse(df.format(distance)).doubleValue();
 		
 		assertEquals(Double.valueOf(expectedDistance), distance);

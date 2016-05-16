@@ -29,6 +29,8 @@ public class GeoLocationImplTest {
 	
 	private Shop fake_shop;
 	
+	private DecimalFormat df; 
+	
 	@Before
 	public void setup(){
 		
@@ -41,13 +43,14 @@ public class GeoLocationImplTest {
 		fake_shop.setShopName("fake");
 		fake_shop.setShopNumber("fake");
 		fake_shop.setPostCode("123456");
+		
+		df = new DecimalFormat("#.00"); 
 	}
 	
 	@Test
 	public void testGetLocation() throws Exception{
 		Location location = geoLocation.getLocation(shop);
 		
-		DecimalFormat df = new DecimalFormat("#.00"); 
 		Double latitude =  df.parse(df.format(location.getLatitude())).doubleValue();
 		Double longitude =  df.parse(df.format(location.getLongitude())).doubleValue();
 		
