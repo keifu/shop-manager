@@ -2,6 +2,8 @@ package com.shopmanager.geolocation;
 
 import static org.junit.Assert.assertEquals;
 
+import java.text.DecimalFormat;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.shopmanager.Application;
 import com.shopmanager.Shop;
+import com.shopmanager.ShopUtils;
 import com.shopmanager.geolocation.GeoLocation;
 import com.shopmanager.geolocation.Location;
 
@@ -43,8 +46,13 @@ public class GeoLocationImplTest {
 	@Test
 	public void testGetLocation() throws Exception{
 		Location location = geoLocation.getLocation(shop);
-		assertEquals(Double.valueOf(51.5165611), location.getLatitude());
-		assertEquals(Double.valueOf(0.078538), location.getLongitude());
+		
+		DecimalFormat df = new DecimalFormat("#.00"); 
+		Double latitude =  df.parse(df.format(location.getLatitude())).doubleValue();
+		Double longitude =  df.parse(df.format(location.getLongitude())).doubleValue();
+		
+		assertEquals(Double.valueOf(51.52), latitude);
+		assertEquals(Double.valueOf(0.08),longitude);
 		
 	}
 	
