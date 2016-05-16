@@ -16,6 +16,21 @@ import com.shopmanager.cache.ShopCache;
 import com.shopmanager.geolocation.GeoLocation;
 import com.shopmanager.geolocation.Location;
 
+/**
+ * End point for mananging and retrieing shops<p>
+ * 
+ * To test locally, below are the URLs<p>
+ * 
+ * <b>Adding a shop</b>: http://localhost:8080/shop<p>
+ * Example payload: { "shopName": "Nandos", "shopNumber": "3 Armada Way", "postCode": "E6 7ER" } <p>
+ * 
+ * <b>URL to get nearest shop:</b> http://localhost:8080/shop?latitude=51.505145&longitude=0.019541<p>
+ * 
+ * <b>URL to get list of shops added:</b> http://localhost:8080/shoplist<p>
+ * 
+ * @author Keith
+ *
+ */
 @RestController
 @RequestMapping()
 public class ShopController {
@@ -65,15 +80,15 @@ public class ShopController {
 			return new ResponseEntity<>(shop, HttpStatus.OK);
 		}
 	}
-	
-	public Shop getNearestShop(Double latitude,Double longitude, List<Shop> shopList){
-		return ShopUtils.getNearestShop(latitude, longitude, shopList);
-	}
-	
+		
 	@RequestMapping(value = "/shoplist", method = RequestMethod.GET)
 	public ResponseEntity<List<Shop>>  getShopList() {
 		List<Shop> shopList = shopCache.getShopList();
 		return new ResponseEntity<>(shopList, HttpStatus.OK);
+	}
+	
+	public Shop getNearestShop(Double latitude,Double longitude, List<Shop> shopList){
+		return ShopUtils.getNearestShop(latitude, longitude, shopList);
 	}
 	
 	void setGeoLocation(GeoLocation geoLocation) {
