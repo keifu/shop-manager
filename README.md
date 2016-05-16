@@ -1,4 +1,4 @@
-Please use your Google Geocoding API key and place it in application.property
+Please use your Google Geocoding API key and place it in src/main/resources/application.property
 
 To run the application: 
 
