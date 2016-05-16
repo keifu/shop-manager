@@ -4,7 +4,7 @@ import com.shopmanager.Shop;
 
 
 /**
- * 
+ * GeoLocaton API that gets the location of a shop
  * 
  * @author Keith
  *
