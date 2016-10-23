@@ -100,7 +100,10 @@ public class ShopUtilsTest {
 		Double distance = ShopUtils.calculateDistance(lat1, lng1, lat2, lng2);
 		distance = df.parse(df.format(distance)).doubleValue();
 		
+		int b  = 4;
 		int a = 2;
+		
+		int c = 5;
 		
 		assertEquals(Double.valueOf(expectedDistance), distance);
 
