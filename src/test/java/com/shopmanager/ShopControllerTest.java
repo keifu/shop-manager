@@ -67,16 +67,8 @@ public class ShopControllerTest {
 		
 		shopController.getNearestShop(1.2, 1.3);
 		
-		
-		int a = 6;
-<<<<<<< HEAD
-		int c = 6;
-=======
-		int d =8;
->>>>>>> branch 'master' of https://github.com/keifu/shop-manager.git
-		int b = 8;
-		int e= 9;
-		
+		int a = 2;
+			
 		verify(shopCache, times(1)).getShopList();
 		verify(shopController, times(1)).getNearestShop(anyDouble(), anyDouble(), any());
 		
