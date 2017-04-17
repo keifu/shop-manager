@@ -69,6 +69,8 @@ public class ShopControllerTest {
 		
 		int a = 3;
 			
+
+		int b = 6;
 		verify(shopCache, times(1)).getShopList();
 		verify(shopController, times(1)).getNearestShop(anyDouble(), anyDouble(), any());
 		
