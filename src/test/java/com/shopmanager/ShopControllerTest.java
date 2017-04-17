@@ -67,6 +67,8 @@ public class ShopControllerTest {
 		
 		shopController.getNearestShop(1.2, 1.3);
 		
+		System.out.println("HelloWorld");
+		
 		verify(shopCache, times(1)).getShopList();
 		verify(shopController, times(1)).getNearestShop(anyDouble(), anyDouble(), any());
 		
