@@ -69,6 +69,7 @@ public class ShopControllerTest {
 		
 		
 		int a = 6;
+		int c = 6;
 		int b = 8;
 		
 		verify(shopCache, times(1)).getShopList();
