@@ -66,9 +66,9 @@ public class ShopControllerTest {
 	public void testGetNearest() throws Exception{
 		
 		shopController.getNearestShop(1.2, 1.3);
-		System.out.println("Hi");
 		
-		System.out.println("HelloWorld");
+		int a = 2;
+		int b = 3;
 		
 		verify(shopCache, times(1)).getShopList();
 		verify(shopController, times(1)).getNearestShop(anyDouble(), anyDouble(), any());
