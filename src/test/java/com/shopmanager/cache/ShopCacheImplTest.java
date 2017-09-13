@@ -36,6 +36,7 @@ public class ShopCacheImplTest {
 		shop3.setShopName("Shop 3");
 		shop3.setShopNumber("12");
 		shop3.setPostCode("E3");
+		
 	}
 	
 	@Test
