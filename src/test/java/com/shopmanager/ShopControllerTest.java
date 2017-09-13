@@ -47,6 +47,10 @@ public class ShopControllerTest {
 		
 		shopController.setGeoLocation(geoLocation);
 		shopController.setShopCache(shopCache);
+		
+		int a = 1;
+		
+		System.out.println("hello world");
 	}
 	
 	@Test
